@@ -1,15 +1,15 @@
 const Home = () => {
-    const handleClick = (e) => {
-        console.log('hello, ninjas', e);
+    let name = 'willis';//the variable is not reactive
+    const handleClick = () => {
+        name = 'luigi';
+        console.log(name);
     };
-    const handleClickAgain = (name,e) => {
-        console.log(`Hello ${name}`,e.target);
-    }
+    
     return ( 
         <div className="home">
             <h2>Homepage</h2>
+            <p>{ name }</p>
             <button onClick={handleClick}>Click me</button>
-            <button onClick={(e)=>handleClickAgain('Willis',e)}>Click me again</button>
         </div>
      );
 }
