@@ -1,8 +1,11 @@
+import { useState } from 'react';
+
 const Home = () => {
-    let name = 'willis';//the variable is not reactive
+    //let name = 'willis';//the variable is not reactive
+    const [name,setName] = useState('willis');
     const handleClick = () => {
-        name = 'luigi';
-        console.log(name);
+        setName('oluigi');
+        
     };
     
     return ( 
