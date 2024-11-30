@@ -1,14 +1,14 @@
 //custom hook
 import {  useState, useEffect} from 'react';
 
-const useFetch = (url) => {
-    const [data, setData] = useState(null);
+const useFetch = () => {
+    const [blogs, setBlogs] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(()=>{
         setTimeout(()=>{
-                 fetch( url )
+                 fetch( 'http://localhost:8000/blogs' )
              .then(res => {
                  console.log(res);
                  if( !res.ok){
@@ -18,7 +18,7 @@ const useFetch = (url) => {
              })
              .then(data=>{
                  
-                 setData(data);
+                 setBlogs(data);
                  setIsPending(false);
                  setError(null);
              })
@@ -29,10 +29,5 @@ const useFetch = (url) => {
              });
         },1000)
          
-     },[url]);
-     return {data, isPending, error};
+     },[]);
 };
-
-
-
-export default useFetch;
